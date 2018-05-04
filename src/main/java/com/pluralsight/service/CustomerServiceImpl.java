@@ -13,22 +13,23 @@ import com.pluralsight.repository.CustomerRepository;
 @Scope("prototype") // or @Scope("singleton") for a singleton
 public class CustomerServiceImpl implements CustomerService {
 
+	@Autowired
 	private CustomerRepository customerRepository;
 
 	public CustomerServiceImpl() {
 
 	}
 
-	public CustomerServiceImpl(CustomerRepository customerRepository) {
-		System.out.println("We are using constructor injection");
-		this.customerRepository = customerRepository;
-	}
-
-	@Autowired
-	public void setCustomerRepository(CustomerRepository customerRepository) {
-		System.out.println("We are using setter injection");
-		this.customerRepository = customerRepository;
-	}
+	// public CustomerServiceImpl(CustomerRepository customerRepository) {
+	// System.out.println("We are using constructor injection");
+	// this.customerRepository = customerRepository;
+	// }
+	//
+	// @Autowired
+	// public void setCustomerRepository(CustomerRepository customerRepository) {
+	// System.out.println("We are using setter injection");
+	// this.customerRepository = customerRepository;
+	// }
 
 	@Override
 	public List<Customer> findAll() {
